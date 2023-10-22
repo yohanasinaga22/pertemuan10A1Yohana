@@ -1,0 +1,87 @@
+def matriks_identitas(n):
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                print("1", end=" ")
+            else:
+                print("0", end=" ")
+        print()
+
+n = int(input("Masukkan ukuran matriks identitas: "))
+matriks_identitas(n)
+
+
+
+
+def input_matriks():
+    baris = int(input("Masukkan jumlah baris: "))
+    kolom = int(input("Masukkan jumlah kolom: "))
+    matriks = []
+    for i in range(baris):
+        baris1 = []
+        for j in range(kolom):
+            elemen = int(input(f"Masukkan elemen baris {i + 1} kolom {j + 1}: "))
+            baris1.append(elemen)
+        matriks.append(baris1)
+    return matriks
+
+def penjumlahan_matriks(matriks1, matriks2):
+    hasil = []
+    for i in range(len(matriks1)):
+        baris1 = []
+        for j in range(len(matriks1[0])):
+            elemen = matriks1[i][j] + matriks2[i][j]
+            baris1.append(elemen)
+        hasil.append(baris1)
+    return hasil
+
+print("Masukkan matriks pertama:")
+matriks1 = input_matriks()
+
+print("Masukkan matriks kedua:")
+matriks2 = input_matriks()
+
+if len(matriks1) != len(matriks2) or len(matriks1[0]) != len(matriks2[0]):
+    print("Ukuran matriks tidak sama")
+else:
+    result = penjumlahan_matriks(matriks1, matriks2)
+    print("Hasil penjumlahan matriks:")
+    for baris1 in result:
+        print(baris1)
+
+
+
+
+
+def input_matriks():
+    baris = int(input("Masukkan jumlah baris: "))
+    kolom = int(input("Masukkan jumlah kolom: "))
+    matriks = []
+    for i in range(baris):
+        baris1 = []
+        for j in range(kolom):
+            elemen = int(input(f"Masukkan elemen baris {i+1} kolom {j+1}: "))
+            baris1.append(elemen)
+        matriks.append(baris1)
+    return matriks
+
+def transpose_matriks(matriks):
+    hasil = []
+    for j in range(len(matriks[0])):
+        baris1 = []
+        for i in range(len(matriks)):
+            elemen = matriks[i][j]
+            baris1.append(elemen)
+        hasil.append(baris1)
+    return hasil
+
+matriks = input_matriks()
+transpose = transpose_matriks(matriks)
+
+print("Matriks:")
+for baris1 in matriks:
+    print(baris1)
+
+print("Transpose:")
+for baris1 in transpose:
+    print(baris1)
